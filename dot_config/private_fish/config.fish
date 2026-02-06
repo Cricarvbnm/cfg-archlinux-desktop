@@ -31,6 +31,7 @@ status is-interactive; and begin
 
     zoxide init fish | source
 
+    # Theme
     starship init fish | source
 
 end
