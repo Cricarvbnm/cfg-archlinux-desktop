@@ -11,7 +11,10 @@
     homeDirectory = "/home/alec";
     file.".icon".source = ./icon.png;
 
-    packages = with pkgs; [ save-music ];
+    packages = with pkgs; [
+      xeyes
+      save-music
+    ];
 
     stateVersion = "25.05";
   };
