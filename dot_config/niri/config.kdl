@@ -291,7 +291,6 @@ cursor {
 
 // This line starts waybar, a commonly used bar for Wayland compositors.
 spawn-sh-at-startup "fcitx5 --replace"
-spawn-at-startup "copyq"
 
 // To run a shell command (with variables, pipes, etc.), use spawn-sh-at-startup:
 // spawn-sh-at-startup "qs -c ~/source/qs/MyAwesomeShell"
@@ -361,11 +360,6 @@ window-rule {
 }
 
 window-rule {
-    match app-id=r#"copyq$"#
-    open-floating true
-}
-
-window-rule {
     match app-id=r#"thunar"# title=r#"^重命名"#
     open-floating true
 }
@@ -431,7 +425,7 @@ binds {
 
     // Quick Access
     Mod+A {
-        spawn-sh "copyq show"
+        spawn-sh "qs -c noctalia-shell ipc call launcher clipboard"
     }
     Mod+Alt+D {
         spawn-sh "qs -c noctalia-shell ipc call calendar toggle"
