@@ -1,0 +1,13 @@
+# Source nix
+if test -d ~/.nix-profile/etc//profile.d/; then
+    for profile in ~/.nix-profile/etc/profile.d/*.sh; do
+        test -r "$profile" && . "$profile"
+    done
+    unset profile
+fi
+
+# Welcome
+echo "Login $SHELL: Welcome $USER"
+
+# Source interactive configuration
+test -f ~/.bashrc && . ~/.bashrc
