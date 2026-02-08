@@ -9,7 +9,10 @@
   home = {
     username = "alec";
     homeDirectory = "/home/alec";
-    file.".icon".source = ./icon.png;
+    file = {
+      ".face".source = ./icon.png;
+      ".face.icon".source = ./icon.png;
+    };
 
     packages = with pkgs; [
       xeyes
