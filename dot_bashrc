@@ -6,7 +6,6 @@ echo "Interactive $SHELL: Welcome $USER"
 if [[ $- == *i* && $(ps --no-header --pid=$PPID --format=comm) != "fish" \
 	&& -z ${BASH_EXECUTION_STRING} && ${SHLVL} == 1 ]]
 then
-	echo "Switching to fish..."
 	shopt -q login_shell && LOGIN_OPTION='--login' || LOGIN_OPTION=''
 	SHELL=/usr/bin/fish exec fish $LOGIN_OPTION
 fi
