@@ -17,6 +17,6 @@ status is-interactive; and begin
 
 end
 
-for config in ./config.d/*.fish
+for config in $XDG_CONFIG_HOME/fish/config.d/*.fish
   source $config
 end
