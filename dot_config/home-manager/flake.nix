@@ -5,7 +5,6 @@
     self.submodules = true;
 
     unflake.url = "https://codeberg.org/goldstein/unflake/archive/main.tar.gz";
-    flake-utils.url = "github:numtide/flake-utils";
 
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     home-manager = {
@@ -17,7 +16,6 @@
   outputs =
     {
       self,
-      flake-utils,
       unflake,
       nixpkgs,
       home-manager,
@@ -46,7 +44,7 @@
       pkgs = import nixpkgs {
         inherit system;
         # Add an overlay to make custom packages available inside `pkgs`
-        overlays = [ (_: _: mapAttrs (_: value: value.${system}) (self.packages)) ];
+        overlays = [ (_: _: self.packages.${system}) ];
       };
     in
     {
@@ -120,11 +118,9 @@
 
           packagePaths = listToAttrs (map toPackageAttribute nixFilenames);
 
-          # 4. Generate the `packages` output for all systems supported by flake-utils
+          # 4. Generate the `packages` output
           # We use pkgs.callPackage to instantiate the derivations found in ./pkgs
-          packages = flake-utils.lib.eachSystem flake-utils.lib.allSystems (
-            _: mapAttrs (_: path: pkgs.callPackage path { }) packagePaths
-          );
+          packages.x86_64-linux = mapAttrs (_: path: pkgs.callPackage path { }) packagePaths;
         in
         packages;
 

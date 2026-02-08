@@ -5,17 +5,9 @@ let
       type = "github";
       owner = "nix-community";
       repo = "home-manager";
-      rev = "471e6a065f9efed51488d7c51a9abbd387df91b8";
-      lastModified = 1770318660;
-      narHash = "sha256-yFVde8QZK7Dc0Xa8eQDsmxLX4NJNfL1NKfctSyiQgMY=";
-    };
-    unflake_github_nix-systems_default = builtins.fetchTree {
-      type = "github";
-      owner = "nix-systems";
-      repo = "default";
-      rev = "da67096a3b9bf56a91d16901293e51ba5b49a27e";
-      lastModified = 1681028828;
-      narHash = "sha256-Vy1rq5AaRuLzOxct8nz4T6wlgyUR7zLU309k9mBC768=";
+      rev = "cbd8a72e5fe6af19d40e2741dc440d9227836860";
+      lastModified = 1770491427;
+      narHash = "sha256-8b+0vixdqGnIIcgsPhjdX7EGPdzcVQqYxF+ujjex654=";
     };
     unflake_github_nixos_nixpkgs_ref_nixos-unstable = builtins.fetchTree {
       type = "github";
@@ -29,17 +21,9 @@ let
       type = "github";
       owner = "nixos";
       repo = "nixpkgs";
-      rev = "aa290c9891fa4ebe88f8889e59633d20cc06a5f2";
-      lastModified = 1770169770;
-      narHash = "sha256-awR8qIwJxJJiOmcEGgP2KUqYmHG4v/z8XpL9z8FnT1A=";
-    };
-    unflake_github_numtide_flake-utils = builtins.fetchTree {
-      type = "github";
-      owner = "numtide";
-      repo = "flake-utils";
-      rev = "11707dc2f618dd54ca8739b309ec4fc024de578b";
-      lastModified = 1731533236;
-      narHash = "sha256-l0KFg5HjrsfsO/JpG+r7fRrqm12kzFHyUHqHCVpMMbI=";
+      rev = "ae67888ff7ef9dff69b3cf0cc0fbfbcd3a722abe";
+      lastModified = 1770380644;
+      narHash = "sha256-P7dWMHRUWG5m4G+06jDyThXO7kwSk46C1kgjEWcybkE=";
     };
     unflake_tarball_https---codeberg-org-goldstein-unflake-archive-main-tar-gz = builtins.fetchTree {
       type = "tarball";
@@ -57,13 +41,6 @@ let
       outPath = "${deps.unflake_github_nix-community_home-manager.outPath}";
       sourceInfo = deps.unflake_github_nix-community_home-manager;
     };
-    unflake_github_nix-systems_default = ((import "${deps.unflake_github_nix-systems_default.outPath}/flake.nix").outputs {
-      self = unflake_github_nix-systems_default;
-    }) // deps.unflake_github_nix-systems_default // {
-      _flake = true;
-      outPath = "${deps.unflake_github_nix-systems_default.outPath}";
-      sourceInfo = deps.unflake_github_nix-systems_default;
-    };
     unflake_github_nixos_nixpkgs_ref_nixos-unstable = ((import "${deps.unflake_github_nixos_nixpkgs_ref_nixos-unstable.outPath}/flake.nix").outputs {
       self = unflake_github_nixos_nixpkgs_ref_nixos-unstable;
     }) // deps.unflake_github_nixos_nixpkgs_ref_nixos-unstable // {
@@ -78,14 +55,6 @@ let
       outPath = "${deps.unflake_github_nixos_nixpkgs_ref_nixpkgs-unstable.outPath}";
       sourceInfo = deps.unflake_github_nixos_nixpkgs_ref_nixpkgs-unstable;
     };
-    unflake_github_numtide_flake-utils = ((import "${deps.unflake_github_numtide_flake-utils.outPath}/flake.nix").outputs {
-      self = unflake_github_numtide_flake-utils;
-      systems = unflake_github_nix-systems_default;
-    }) // deps.unflake_github_numtide_flake-utils // {
-      _flake = true;
-      outPath = "${deps.unflake_github_numtide_flake-utils.outPath}";
-      sourceInfo = deps.unflake_github_numtide_flake-utils;
-    };
     unflake_tarball_https---codeberg-org-goldstein-unflake-archive-main-tar-gz = ((import "${deps.unflake_tarball_https---codeberg-org-goldstein-unflake-archive-main-tar-gz.outPath}/flake.nix").outputs {
       self = unflake_tarball_https---codeberg-org-goldstein-unflake-archive-main-tar-gz;
       nixpkgs = unflake_github_nixos_nixpkgs_ref_nixos-unstable;
@@ -96,7 +65,6 @@ let
     };
   };
   inputs = {
-    flake-utils = universe.unflake_github_numtide_flake-utils;
     home-manager = universe.unflake_github_nix-community_home-manager;
     nixpkgs = universe.unflake_github_nixos_nixpkgs_ref_nixpkgs-unstable;
     unflake = universe.unflake_tarball_https---codeberg-org-goldstein-unflake-archive-main-tar-gz;
