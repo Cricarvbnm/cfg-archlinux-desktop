@@ -1,0 +1,98 @@
+############################
+# Fonts
+############################
+
+# 字体族优先级（Times New Roman → Noto → DejaVu）
+font.family : serif
+font.serif  : Times New Roman, Noto Serif, Noto Serif CJK SC, Noto Serif CJK TC, DejaVu Serif
+font.sans-serif : Noto Sans, Noto Sans CJK SC, Noto Sans CJK TC, DejaVu Sans
+font.monospace : Noto Sans Mono, DejaVu Sans Mono
+
+# 数学字体（与 Times 风格更协调）
+mathtext.fontset : stix
+mathtext.rm      : Times New Roman
+mathtext.it      : Times New Roman:italic
+mathtext.bf      : Times New Roman:bold
+
+# 避免负号显示成方块
+axes.unicode_minus : False
+
+
+############################
+# Figure
+############################
+figure.figsize : 6.4, 4.8     # 默认与 Matplotlib 一致，通用
+figure.dpi     : 100
+savefig.dpi    : 300
+figure.autolayout : False     # 自动调整边距，少用 tight_layout
+
+
+############################
+# Axes
+############################
+axes.titlesize : 14
+axes.labelsize : 12
+axes.linewidth : 1.0
+axes.grid      : False
+axes.axisbelow : True        # 网格线在数据下面
+
+
+############################
+# Grid
+############################
+grid.linestyle : --
+grid.linewidth : 0.6
+grid.alpha     : 0.6
+
+
+############################
+# Ticks
+############################
+xtick.direction : in
+ytick.direction : in
+
+xtick.major.size : 6
+ytick.major.size : 6
+xtick.minor.size : 3
+ytick.minor.size : 3
+
+xtick.labelsize : 10
+ytick.labelsize : 10
+
+xtick.minor.visible : False
+ytick.minor.visible : False
+
+
+############################
+# Lines
+############################
+lines.linewidth : 2.0
+lines.markersize : 6
+
+
+############################
+# Legend
+############################
+legend.fontsize : 10
+legend.frameon  : True
+legend.framealpha : 0.9
+legend.fancybox : True
+
+
+############################
+# Saving figures
+############################
+savefig.bbox : tight
+savefig.pad_inches : 0.05
+
+
+############################
+# Color & style
+############################
+image.cmap : viridis
+
+
+############################
+# Misc
+############################
+text.usetex : False           # 默认关闭，避免环境依赖
