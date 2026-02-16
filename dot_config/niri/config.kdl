@@ -12,17 +12,17 @@ input {
 
     // repeat-delay 600
     // repeat-rate 25
-    // track-layout "global"
+    // track-layout "global" // global: layout change is global for all windows; window: layout is tracked for each window
     numlock // Enable numlock on startup
   }
 
   touchpad {
     // off
     tap
-    // dwt // Disable when typing
-    // dwtp // Disable when trachpointing
+    dwt // Disable when typing
+    dwtp // Disable when trachpointing
     // drag false // Whether to eanble tap-and-drag
-    // drag-lock // Allow lifting the finger off for a short time while dragging
+    drag-lock // Allow lifting the finger off for a short time while dragging
     // natural-scroll // Move up to scroll down
     accel-speed 0.5 // Pointer acceleration speed. The default is 0.0
     // accel-profile "flat" // "adaptive" (default) or "flat" (disables pointer acceleration)
@@ -48,7 +48,7 @@ input {
     // middle-emulation
   }
 
-  /-trackpoint {
+  trackpoint {
     // off
     // natural-scroll
     // accel-speed 0.2
@@ -59,7 +59,7 @@ input {
     // middle-emulation
   }
 
-  /-trackball {
+  trackball {
     // off
     // natural-scroll
     // accel-speed 0.2
@@ -70,25 +70,25 @@ input {
     // middle-emulation
   }
 
-  /-tablet {
+  tablet {
     // off
     map-to-output "eDP-1"
     // left-handed
     // calibration-matrix 1.0 0.0 0.0 0.0 1.0 0.0
   }
 
-  /-touch {
+  touch {
     // off
     map-to-output "eDP-1"
   }
 
   // disable-power-key-handling // By default, the power button lead to sleep
-  warp-mouse-to-focus // Make the mouse warp to newly focused windows
-  // focus-follows-mouse max-scroll-amount="0%" // Focuse windows and outputs when moving the mouse over them. Property max-scroll-amount sets the max view scrolling amount.
+  // warp-mouse-to-focus // Make the mouse warp to newly focused windows
+  // focus-follows-mouse max-scroll-amount="0%" // Focus windows and outputs when moving the mouse over them. Property max-scroll-amount sets the max view scrolling amount.
   // workspace-auto-back-and-forth // Switch to the same workspace by index twice will switch back to the previous workspace
 
-  // mod-key "Super" // Mod is equal to this when running niri on a TTY
-  // mod-key-nested "Alt" // Mod is equal to this when running niri as a nested window
+  mod-key "Super" // Mod is equal to this when running niri on a TTY
+  mod-key-nested "Alt" // Mod is equal to this when running niri as a nested window
 }
 
 output "eDP-1" {
@@ -103,6 +103,8 @@ output "eDP-1" {
   // backdrop-color "#001100"
 }
 
+// ======== Outputs ========
+
 output "eDP-2" {
   focus-at-startup
 }
@@ -112,10 +114,11 @@ output "HDMI-A-1" {
   position x=-1920 y=720
 }
 
+// ======== Shortcuts ========
 
 hotkey-overlay {
   skip-at-startup
-  // hide-not-bound
+  hide-not-bound
 }
 
 binds {
@@ -156,8 +159,7 @@ binds {
   // screenshot{,-screen,-window}: Open the built-in interactive screenshot UI. Property write-to-disk=bool. Property show-pointer=bool.
   // toggle-keyboard-shortcuts-inhibit: Toggle whether to forward the key pressed to the application which request that niri stops processing its keyboard shortcuts.
 
-  Mod+Shift+Slash { show-hotkey-overlay; }
-
+  // ======== Noctalia Core ========
   Mod+D hotkey-overlay-title="Run an Application" { 
     spawn-sh "qs -c noctalia-shell ipc call launcher toggle";
   }
@@ -168,16 +170,16 @@ binds {
     spawn-sh "qs -c noctalia-shell ipc call settings toggle"
   }
 
-  Mod+A {
+  Mod+A hotkey-overlay-title="Open Clipboards" {
     spawn-sh "qs -c noctalia-shell ipc call launcher clipboard"
   }
   Mod+Alt+D {
     spawn-sh "qs -c noctalia-shell ipc call calendar toggle"
   }
-  Ctrl+Alt+Delete {
-    spawn-sh "qs -c noctalia-shell ipc call sessionMenu toggle"
-  }
 
+  Mod+O repeat=false { toggle-overview; }
+
+  // ======== Security ========
   Super+Alt+L hotkey-overlay-title="Lock the Screen: hyprlock" {
     spawn-sh "qs -c noctalia-shell ipc call lockScreen lock"
   }
@@ -193,26 +195,25 @@ binds {
   Super+Alt+N {
     spawn-sh "qs -c noctalia-shell ipc call notifications toggleDND"
   }
-  Super+A hotkey-overlay-title="Open Clipboards" {
-    spawn-sh ""
-  }
 
+  // ======== File Exploerer ========
   Mod+E hotkey-overlay-title="Open a File Manager: nemo" { spawn "nemo"; }
   Mod+Shift+E hotkey-overlay-title="Open Desktop: nemo" { spawn-sh "nemo ~/Desktop"; }
   Mod+Y hotkey-overlay-title="Open File Manager: yazi" { spawn-sh "xdg-launch yazi"; }
 
+  // ======== Volume ========
   XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05+"; }
   XF86AudioLowerVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05-"; }
   XF86AudioMute        allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"; }
   XF86AudioMicMute     allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"; }
 
+  // ======== Screen Brightness ========
   XF86MonBrightnessUp allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "+10%"; }
   XF86MonBrightnessDown allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "10%-"; }
+  Mod+Shift+P { power-off-monitors; }
 
-  Mod+O repeat=false { toggle-overview; }
-
-  Mod+Q repeat=false { close-window; }
-  MouseForward { close-window; }
+  // ======== Focus Management ========
+  Mod+Tab { focus-window-previous; }
 
   Mod+Left  { focus-column-left; }
   Mod+Down  { focus-window-down; }
@@ -223,19 +224,13 @@ binds {
   Mod+K     { focus-window-up; }
   Mod+L     { focus-column-right; }
 
-  Mod+Ctrl+Left  { move-column-left; }
-  Mod+Ctrl+Down  { move-window-down; }
-  Mod+Ctrl+Up    { move-window-up; }
-  Mod+Ctrl+Right { move-column-right; }
-  Mod+Ctrl+H     { move-column-left; }
-  Mod+Ctrl+J     { move-window-down; }
-  Mod+Ctrl+K     { move-window-up; }
-  Mod+Ctrl+L     { move-column-right; }
-
   Mod+Home { focus-column-first; }
   Mod+End  { focus-column-last; }
-  Mod+Ctrl+Home { move-column-to-first; }
-  Mod+Ctrl+End  { move-column-to-last; }
+
+  Mod+WheelScrollRight      { focus-column-right; }
+  Mod+WheelScrollLeft       { focus-column-left; }
+  Mod+Shift+WheelScrollDown      { focus-column-right; }
+  Mod+Shift+WheelScrollUp        { focus-column-left; }
 
   Mod+Shift+Left  { focus-monitor-left; }
   Mod+Shift+Down  { focus-monitor-down; }
@@ -246,6 +241,27 @@ binds {
   Mod+Shift+K     { focus-monitor-up; }
   Mod+Shift+L     { focus-monitor-right; }
 
+  // ======== Window & Colunm Management ========
+  Mod+Q repeat=false { close-window; }
+  MouseForward { close-window; }
+
+  Mod+Ctrl+Left  { move-column-left; }
+  Mod+Ctrl+Down  { move-window-down; }
+  Mod+Ctrl+Up    { move-window-up; }
+  Mod+Ctrl+Right { move-column-right; }
+  Mod+Ctrl+H     { move-column-left; }
+  Mod+Ctrl+J     { move-window-down; }
+  Mod+Ctrl+K     { move-window-up; }
+  Mod+Ctrl+L     { move-column-right; }
+
+  Mod+Ctrl+Home { move-column-to-first; }
+  Mod+Ctrl+End  { move-column-to-last; }
+
+  Mod+Ctrl+WheelScrollRight { move-column-right; }
+  Mod+Ctrl+WheelScrollLeft  { move-column-left; }
+  Mod+Ctrl+Shift+WheelScrollDown { move-column-right; }
+  Mod+Ctrl+Shift+WheelScrollUp   { move-column-left; }
+
   Mod+Shift+Ctrl+Left  { move-column-to-monitor-left; }
   Mod+Shift+Ctrl+Down  { move-column-to-monitor-down; }
   Mod+Shift+Ctrl+Up    { move-column-to-monitor-up; }
@@ -254,6 +270,48 @@ binds {
   Mod+Shift+Ctrl+J     { move-column-to-monitor-down; }
   Mod+Shift+Ctrl+K     { move-column-to-monitor-up; }
   Mod+Shift+Ctrl+L     { move-column-to-monitor-right; }
+
+  // ======== Column Combination ========
+  Mod+BracketLeft  { consume-or-expel-window-left; }
+  Mod+BracketRight { consume-or-expel-window-right; }
+
+  Mod+Comma  { consume-window-into-column; }
+  Mod+Period { expel-window-from-column; }
+
+  Mod+W { toggle-column-tabbed-display; }
+
+  // ======== Resizing ========
+  Mod+R { switch-preset-column-width; }
+
+  Mod+Shift+R { switch-preset-window-height; }
+  Mod+Ctrl+R { reset-window-height; }
+
+  Mod+Ctrl+F { expand-column-to-available-width; }
+
+  Mod+F { maximize-column; }
+  Mod+Shift+F { fullscreen-window; }
+  MouseBack { fullscreen-window; }
+
+  // Finer width adjustments.
+  // This command can also:
+  // * set width in pixels: "1000"
+  // * adjust width in pixels: "-5" or "+5"
+  // * set width as a percentage of screen width: "25%"
+  // * adjust width as a percentage of screen width: "-10%" or "+10%"
+  // Pixel sizes use logical, or scaled, pixels. I.e. on an output with scale 2.0,
+  // set-column-width "100" will make the column occupy 200 physical screen pixels.
+  Mod+Minus { set-column-width "-10%"; }
+  Mod+Equal { set-column-width "+10%"; }
+
+  // Finer height adjustments when in column with other windows.
+  Mod+Shift+Minus { set-window-height "-10%"; }
+  Mod+Shift+Equal { set-window-height "+10%"; }
+
+  // ======== Column Location ========
+  Mod+C { center-column; }
+  Mod+Ctrl+C { center-visible-columns; }
+
+  // ======== Workspace Management ========
 
   Mod+U              { focus-workspace-down; }
   Mod+I              { focus-workspace-up; }
@@ -267,16 +325,6 @@ binds {
   Mod+WheelScrollUp        cooldown-ms=150 { focus-workspace-up; }
   Mod+Ctrl+WheelScrollDown cooldown-ms=150 { move-column-to-workspace-down; }
   Mod+Ctrl+WheelScrollUp   cooldown-ms=150 { move-column-to-workspace-up; }
-
-  Mod+WheelScrollRight      { focus-column-right; }
-  Mod+WheelScrollLeft       { focus-column-left; }
-  Mod+Ctrl+WheelScrollRight { move-column-right; }
-  Mod+Ctrl+WheelScrollLeft  { move-column-left; }
-
-  Mod+Shift+WheelScrollDown      { focus-column-right; }
-  Mod+Shift+WheelScrollUp        { focus-column-left; }
-  Mod+Ctrl+Shift+WheelScrollDown { move-column-right; }
-  Mod+Ctrl+Shift+WheelScrollUp   { move-column-left; }
 
   Mod+1 { focus-workspace 1; }
   Mod+2 { focus-workspace 2; }
@@ -297,64 +345,27 @@ binds {
   Mod+Ctrl+8 { move-column-to-workspace 8; }
   Mod+Ctrl+9 { move-column-to-workspace 9; }
 
-  Mod+Tab { focus-window-previous; }
-
-  Mod+BracketLeft  { consume-or-expel-window-left; }
-  Mod+BracketRight { consume-or-expel-window-right; }
-
-  Mod+Comma  { consume-window-into-column; }
-  Mod+Period { expel-window-from-column; }
-
-  Mod+R { switch-preset-column-width; }
-  Mod+Shift+R { switch-preset-window-height; }
-  Mod+Ctrl+R { reset-window-height; }
-  Mod+F { maximize-column; }
-  Mod+Shift+F { fullscreen-window; }
-  MouseBack { fullscreen-window; }
-  Mod+Ctrl+F { expand-column-to-available-width; }
-
-  Mod+C { center-column; }
-  Mod+Ctrl+C { center-visible-columns; }
-
-  // Finer width adjustments.
-  // This command can also:
-  // * set width in pixels: "1000"
-  // * adjust width in pixels: "-5" or "+5"
-  // * set width as a percentage of screen width: "25%"
-  // * adjust width as a percentage of screen width: "-10%" or "+10%"
-  // Pixel sizes use logical, or scaled, pixels. I.e. on an output with scale 2.0,
-  // set-column-width "100" will make the column occupy 200 physical screen pixels.
-  Mod+Minus { set-column-width "-10%"; }
-  Mod+Equal { set-column-width "+10%"; }
-
-  // Finer height adjustments when in column with other windows.
-  Mod+Shift+Minus { set-window-height "-10%"; }
-  Mod+Shift+Equal { set-window-height "+10%"; }
-
-  // Move the focused window between the floating and the tiling layout.
+  // ======== Floating ========
   Mod+V       { toggle-window-floating; }
   Mod+Shift+V { switch-focus-between-floating-and-tiling; }
 
-  Mod+W { toggle-column-tabbed-display; }
 
-  // Actions to switch layouts.
-  // Note: if you uncomment these, make sure you do NOT have
-  // a matching layout switch hotkey configured in xkb options above.
-  // Having both at once on the same hotkey will break the switching,
-  // since it will switch twice upon pressing the hotkey (once by xkb, once by niri).
-  // Mod+Space       { switch-layout "next"; }
-  // Mod+Shift+Space { switch-layout "prev"; }
-
-  Print { screenshot; }
+  // ======== Screenshot ========
+  Print { screenshot; } 
   Ctrl+Print { screenshot-screen; }
   Alt+Print { screenshot-window; }
 
-  Mod+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
-
+  // ======== Session ========
   Mod+Alt+Delete hotkey-overlay-title="Reboot" allow-when-locked=true { spawn "reboot"; }
   Mod+Ctrl+Delete hotkey-overlay-title="Poweroff" allow-when-locked=true { spawn "poweroff"; }
+  Ctrl+Alt+Delete {
+    spawn-sh "qs -c noctalia-shell ipc call sessionMenu toggle"
+  }
 
-  Mod+Shift+P { power-off-monitors; }
+  // ======== Misc ========
+  Mod+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
+
+  Mod+Shift+Slash { show-hotkey-overlay; }
 }
 
 layout {
@@ -386,7 +397,7 @@ layout {
     width 4
     active-color "#7fc8ff"
     inactive-color "#505050"
-    // urgent-color "#9b0000"
+    urgent-color "#9b0000"
     // active-gradient from="#80c8ff" to="#bbddff" angle=45
     // inactive-gradient from="#505050" to="#808080" angle=45 relative-to="workspace-view"
     // urgent-gradient from="#800" to="#a33" angle=45
@@ -446,7 +457,7 @@ layout {
   }
 }
 
-spawn-sh-at-startup "fcitx5 --replace"
+spawn-at-startup "fcitx5" "--replace"
 
 // prefer-no-csd // Ask the applications to omit their client-side decorations
 
@@ -503,44 +514,44 @@ animations {
 
   // ======== Individual animations ========
 
-  // workspace-switch {
-    // spring damping-ratio=1.0 stiffness=1000 epsilon=0.0001
-  // }
-// 
-  // window-open {
-    // duration-ms 150
-    // curve "ease-out-expo"
-  // }
-// 
-  // window-close {
-    // duration-ms 150
-    // curve "ease-out-quad"
-  // }
-// 
-  // horizontal-view-movement {
-    // spring damping-ratio=1.0 stiffness=800 epsilon=0.0001
-  // }
-// 
-  // window-movement {
-    // spring damping-ratio=1.0 stiffness=800 epsilon=0.0001
-  // }
-// 
-  // window-resize {
-    // spring damping-ratio=1.0 stiffness=800 epsilon=0.0001
-  // }
-// 
-  // config-notification-open-close {
-    // spring damping-ratio=0.6 stiffness=1000 epsilon=0.001
-  // }
-// 
-  // screenshot-ui-open {
-    // duration-ms 200
-    // curve "ease-out-quad"
-  // }
-// 
-  // overview-open-close {
-    // spring damping-ratio=1.0 stiffness=800 epsilon=0.0001
-  // }
+  workspace-switch {
+    spring damping-ratio=1.0 stiffness=1000 epsilon=0.0001
+  }
+
+  window-open {
+    duration-ms 150
+    curve "ease-out-expo"
+  }
+
+  window-close {
+    duration-ms 150
+    curve "ease-out-quad"
+  }
+
+  horizontal-view-movement {
+    spring damping-ratio=1.0 stiffness=800 epsilon=0.0001
+  }
+
+  window-movement {
+    spring damping-ratio=1.0 stiffness=800 epsilon=0.0001
+  }
+
+  window-resize {
+    spring damping-ratio=1.0 stiffness=800 epsilon=0.0001
+  }
+
+  config-notification-open-close {
+    spring damping-ratio=0.6 stiffness=1000 epsilon=0.001
+  }
+
+  screenshot-ui-open {
+    duration-ms 200
+    curve "ease-out-quad"
+  }
+
+  overview-open-close {
+    spring damping-ratio=1.0 stiffness=800 epsilon=0.0001
+  }
 }
 
 // ======== Noctalia ========
