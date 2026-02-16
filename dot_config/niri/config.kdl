@@ -1,11 +1,3 @@
-// This config is in the KDL format: https://kdl.dev
-// "/-" comments out the following node.
-// Check the wiki for a full description of the configuration:
-// https://yalter.github.io/niri/Configuration:-Introduction
-
-// Input device configuration.
-// Find the full list of options on the wiki:
-// https://yalter.github.io/niri/Configuration:-Input
 input {
     keyboard {
         xkb {
@@ -21,8 +13,7 @@ input {
             // localectl set-x11-keymap.
         }
 
-        // Enable numlock on startup, omitting this setting disables it.
-        numlock
+        numlock // Enable numlock on startup, omitting this setting disables it.
     }
 
     // Next sections include libinput settings.
@@ -444,6 +435,12 @@ binds {
     Super+B { spawn "firefox"; }
     Super+N hotkey-overlay-title="Show Notifications: swaync-client" {
         spawn-sh "qs -c noctalia-shell ipc call notifications toggleHistory"
+    }
+    Super+Shift+N {
+        spawn-sh "qs -c noctalia-shell ipc call notifications dismissAll"
+    }
+    Super+Alt+N {
+        spawn-sh "qs -c noctalia-shell ipc call notifications toggleDND"
     }
     Super+A hotkey-overlay-title="Open Clipboards" {
         spawn-sh ""
