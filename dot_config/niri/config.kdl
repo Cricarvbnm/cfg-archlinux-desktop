@@ -82,7 +82,7 @@ input {
     map-to-output "eDP-1"
   }
 
-  // disable-power-key-handling // By default, the power button lead to sleep
+  disable-power-key-handling // By default, the power button lead to sleep
   // warp-mouse-to-focus // Make the mouse warp to newly focused windows
   // focus-follows-mouse max-scroll-amount="0%" // Focus windows and outputs when moving the mouse over them. Property max-scroll-amount sets the max view scrolling amount.
   // workspace-auto-back-and-forth // Switch to the same workspace by index twice will switch back to the previous workspace
