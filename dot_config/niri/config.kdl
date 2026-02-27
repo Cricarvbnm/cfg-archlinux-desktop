@@ -552,6 +552,8 @@ animations {
 }
 
 // ======== Noctalia ========
+spawn-at-startup "qs" "-c" "noctalia-shell"
+
 window-rule {
   // Rounded corners for a modern look.
   geometry-corner-radius 8
