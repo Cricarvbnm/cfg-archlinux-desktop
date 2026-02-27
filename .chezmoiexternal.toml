@@ -7,3 +7,18 @@ refreshPeriod = "1h"
 type = "git-repo"
 url = "https://gitlab.com/asus-linux/nvidia-laptop-power-cfg.git"
 refreshPeriod = "168h"
+
+["dev/tieba-sign"]
+type = "git-repo"
+url = "https://github.com/Cricarvbnm/tieba-sign-go.git"
+refreshPeriod = "168h"
+
+["dev/save-music"]
+type = "git-repo"
+url = "https://github.com/Cricarvbnm/save-music.git"
+refreshPeriod = "168h"
+
+["dev/gistow"]
+type = "git-repo"
+url = "https://github.com/Cricarvbnm/gistow.git"
+refreshPeriod = "168h"
