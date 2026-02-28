@@ -7,13 +7,8 @@
   home = {
     username = "alec";
     homeDirectory = "/home/alec";
-    file = {
-      ".face".source = ./icon.png;
-      ".face.icon".source = ./icon.png;
-    };
 
     packages = with pkgs; [
-      xeyes
     ];
 
     stateVersion = "25.05";
