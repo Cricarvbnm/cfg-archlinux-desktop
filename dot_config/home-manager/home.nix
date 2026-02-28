@@ -2,8 +2,6 @@
 {
   imports = [
     ./hosts/generic-linux/nvidia.nix # Do something for generic linux
-
-    ./modules/tieba-sign.nix
   ];
 
   home = {
@@ -16,7 +14,6 @@
 
     packages = with pkgs; [
       xeyes
-      save-music
     ];
 
     stateVersion = "25.05";
