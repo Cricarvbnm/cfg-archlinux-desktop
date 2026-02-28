@@ -3,6 +3,8 @@ type = "git-repo"
 url = "https://github.com/Cricarvbnm/cfg-lazyvim.git"
 refreshPeriod = "1h"
 
+# Following Projects
+
 ["dev/follow/nvidia-laptop-power-cfg"]
 type = "git-repo"
 url = "https://gitlab.com/asus-linux/nvidia-laptop-power-cfg.git"
@@ -11,6 +13,7 @@ refreshPeriod = "168h"
 ["dev/follow/nvidia-laptop-power-cfg".clone]
 args = ["--depth=1"]
 
+# My Working Projects
 ["dev/tieba-sign"]
 type = "git-repo"
 url = "https://github.com/Cricarvbnm/tieba-sign-go.git"
