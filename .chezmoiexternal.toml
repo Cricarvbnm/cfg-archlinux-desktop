@@ -16,15 +16,15 @@ args = ["--depth=1"]
 # My Working Projects
 ["dev/tieba-sign"]
 type = "git-repo"
-url = "https://github.com/Cricarvbnm/tieba-sign-go.git"
+url = "git@github.com:Cricarvbnm/tieba-sign-go.git"
 refreshPeriod = "168h"
 
 ["dev/save-music"]
 type = "git-repo"
-url = "https://github.com/Cricarvbnm/save-music.git"
+url = "git@github.com:Cricarvbnm/save-music.git"
 refreshPeriod = "168h"
 
 ["dev/gistow"]
 type = "git-repo"
-url = "https://github.com/Cricarvbnm/gistow.git"
+url = "git@github.com:Cricarvbnm/gistow.git"
 refreshPeriod = "168h"
