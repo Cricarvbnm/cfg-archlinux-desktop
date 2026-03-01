@@ -1,0 +1,6 @@
+#!/usr/bin/env sh
+
+PRIVATE_KEY=id_rsa
+
+ssh-keygen -cC "{{ .chezmoi.username }}@{{ .chezmoi.hostname }}" -f $PRIVATE_KEY
+ssh-keygen -yf $PRIVATE_KEY >$PRIVATE_KEY.pub
