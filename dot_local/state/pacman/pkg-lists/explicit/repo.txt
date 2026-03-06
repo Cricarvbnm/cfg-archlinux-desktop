@@ -49,6 +49,7 @@ fzf
 gamemode
 gamescope
 gdu
+gemini-cli
 gistow-git
 git
 git-delta
