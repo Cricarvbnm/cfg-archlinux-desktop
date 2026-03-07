@@ -2,6 +2,7 @@ catppuccin-cursors-macchiato
 catppuccin-fcitx5-git
 catppuccin-gtk-theme-frappe
 clash-verge-rev-bin
+ffmpeg-normalize
 intellij-idea-ultimate-edition
 kvantum-theme-catppuccin-git
 netpeek

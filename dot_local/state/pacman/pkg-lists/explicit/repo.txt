@@ -1,5 +1,6 @@
 7zip
 archlinuxcn-keyring
+argbash
 aria2
 asusctl
 baobab
