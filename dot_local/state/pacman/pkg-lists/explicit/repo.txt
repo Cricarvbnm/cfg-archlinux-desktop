@@ -63,6 +63,7 @@ hyprpolkitagent
 iftop
 intel-ucode
 isd
+jdk-openjdk
 jq
 kcalc
 kdenlive
@@ -113,6 +114,7 @@ nvidia-utils
 obs-studio
 ollama
 ollama-cuda
+opencode
 openssh
 os-prober
 pacman-contrib
@@ -126,6 +128,7 @@ python-pefile
 qemu-desktop
 qt6ct
 rog-control-center
+rssguard
 rsync
 samba
 save-music
@@ -137,6 +140,7 @@ sunshine
 supergfxctl
 texlive-basic
 texlive-bibtexextra
+texlive-binextra
 texlive-fontsrecommended
 texlive-langcjk
 texlive-latex

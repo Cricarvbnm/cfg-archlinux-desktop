@@ -5,6 +5,7 @@ clash-verge-rev-bin
 ffmpeg-normalize
 intellij-idea-ultimate-edition
 kvantum-theme-catppuccin-git
+microsoft-edge-stable-bin
 netpeek
 nipaplay-reload-bin
 noctalia-shell
