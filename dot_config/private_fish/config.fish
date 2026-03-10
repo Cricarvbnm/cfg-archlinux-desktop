@@ -20,3 +20,6 @@ end
 for config in $XDG_CONFIG_HOME/fish/config.d/*.fish
     source $config
 end
+
+# OpenClaw Completion
+source "/home/alec/.openclaw/completions/openclaw.fish"
