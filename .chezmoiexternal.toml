@@ -23,8 +23,3 @@ refreshPeriod = "168h"
 type = "git-repo"
 url = "ssh://git@codeberg.org/Alechron/save-music.git"
 refreshPeriod = "168h"
-
-["dev/gistow"]
-type = "git-repo"
-url = "git@github.com:Cricarvbnm/gistow.git"
-refreshPeriod = "168h"
