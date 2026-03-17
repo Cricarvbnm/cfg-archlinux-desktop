@@ -18,4 +18,3 @@ sddm-astronaut-theme
 visual-studio-code-bin
 winboat-bin
 xdg-launch
-xdg-terminal-exec

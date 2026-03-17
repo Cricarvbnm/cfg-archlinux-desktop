@@ -91,6 +91,7 @@ man-pages
 man-pages-zh_cn
 man-pages-zh_tw
 mangohud
+maven
 mesa
 mission-center
 mpv
@@ -163,6 +164,7 @@ uwsm
 virt-manager
 vulkan-intel
 wl-clipboard
+xdg-terminal-exec
 xorg-xeyes
 xz
 yay
