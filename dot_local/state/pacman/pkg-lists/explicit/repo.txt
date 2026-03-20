@@ -107,6 +107,7 @@ nix
 noto-fonts
 noto-fonts-cjk
 noto-fonts-emoji
+nss-mdns
 ntfs-3g
 nvidia-laptop-power-cfg
 nvidia-open-dkms
@@ -153,6 +154,7 @@ thunderbird
 thunderbird-i18n-zh-cn
 tieba-sign
 tldr
+tree
 ttf-liberation
 ttf-nerd-fonts-symbols
 ttf-sarasa-gothic
@@ -163,6 +165,7 @@ uv
 uwsm
 virt-manager
 vulkan-intel
+wireless-regdb
 wl-clipboard
 xdg-terminal-exec
 xorg-xeyes
