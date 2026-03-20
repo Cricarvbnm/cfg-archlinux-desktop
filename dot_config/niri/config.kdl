@@ -179,6 +179,10 @@ binds {
 
   Mod+O repeat=false { toggle-overview; }
 
+  Mod+F1 hotkey-overlay-title="Show All Keybinds" {
+    spawn-sh "qs -c noctalia-shell ipc call plugin:keybind-cheatsheet toggle"
+  }
+
   // ======== Security ========
   Super+Alt+L hotkey-overlay-title="Lock the Screen: hyprlock" {
     spawn-sh "qs -c noctalia-shell ipc call lockScreen lock"
