@@ -2,17 +2,10 @@
 # Fonts
 ############################
 
-# 字体族优先级（Times New Roman → Noto → DejaVu）
-font.family: serif
-font.serif: Noto Serif CJK SC, Times New Roman, Noto Serif, Noto Serif CJK TC, DejaVu Serif
-font.sans-serif: Noto Sans CJK SC, Noto Sans, Noto Sans CJK TC, DejaVu Sans
-font.monospace: Noto Sans Mono, DejaVu Sans Mono
-
-# 数学字体（与 Times 风格更协调）
-mathtext.fontset: stix
-mathtext.rm: Times New Roman
-mathtext.it: Times New Roman:italic
-mathtext.bf: Times New Roman:bold
+# 字体族优先级
+font.family: sans-serif
+font.sans-serif: SimHei
+font.serif: SimSun
 
 # 避免负号显示成方块
 axes.unicode_minus: False
