@@ -51,10 +51,12 @@ gamemode
 gamescope
 gdu
 gemini-cli
+gifski
 gistow-git
 git
 git-delta
 go
+grim
 grub
 heroic-games-launcher-bin
 htop
@@ -103,6 +105,7 @@ nethogs
 networkmanager
 niri
 nix
+nm-connection-editor
 noto-fonts
 noto-fonts-cjk
 noto-fonts-emoji
@@ -134,11 +137,16 @@ rsync
 samba
 save-music
 sddm
+slurp
 snapper
 starship
 steam
 sunshine
 supergfxctl
+tesseract
+tesseract-data-chi_sim
+tesseract-data-chi_tra
+tesseract-data-jpn
 texlive-basic
 texlive-bibtexextra
 texlive-binextra
@@ -153,6 +161,7 @@ thunderbird
 thunderbird-i18n-zh-cn
 tieba-sign
 tldr
+translate-shell
 ttf-liberation
 ttf-nerd-fonts-symbols
 ttf-sarasa-gothic
@@ -163,6 +172,7 @@ uv
 uwsm
 virt-manager
 vulkan-intel
+wf-recorder
 wireless-regdb
 wl-clipboard
 xdg-terminal-exec
@@ -170,6 +180,7 @@ xorg-xeyes
 xz
 yay
 zathura
+zbar
 zip
 zoxide
 zsh
