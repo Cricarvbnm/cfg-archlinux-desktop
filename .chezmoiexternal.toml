@@ -1,10 +1,4 @@
-[".config/nvim"]
-type = "git-repo"
-url = "https://github.com/Cricarvbnm/cfg-lazyvim.git"
-refreshPeriod = "1h"
-
 # Following Projects
-
 ["dev/follow/nvidia-laptop-power-cfg"]
 type = "git-repo"
 url = "https://gitlab.com/asus-linux/nvidia-laptop-power-cfg.git"
