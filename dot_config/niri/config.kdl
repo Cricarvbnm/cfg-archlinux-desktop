@@ -214,7 +214,6 @@ binds {
   // ======== Screen Brightness ========
   XF86MonBrightnessUp allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "+10%"; }
   XF86MonBrightnessDown allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "10%-"; }
-  Mod+Shift+P { power-off-monitors; }
 
   // ======== Focus Management ========
   Mod+Tab { focus-window-previous; }
