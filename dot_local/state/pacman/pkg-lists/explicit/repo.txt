@@ -59,7 +59,6 @@ grub
 heroic-games-launcher-bin
 htop
 hypridle
-hyprpolkitagent
 iftop
 intel-ucode
 isd
@@ -154,7 +153,6 @@ thunderbird
 thunderbird-i18n-zh-cn
 tieba-sign
 tldr
-tree
 ttf-liberation
 ttf-nerd-fonts-symbols
 ttf-sarasa-gothic

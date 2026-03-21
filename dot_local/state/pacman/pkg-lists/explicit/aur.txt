@@ -13,6 +13,7 @@ octopi
 openclaw-git
 protonplus
 qbittorrent-enhanced
+razergenie
 reflector-mirrorlist-update
 sddm-astronaut-theme
 visual-studio-code-bin
