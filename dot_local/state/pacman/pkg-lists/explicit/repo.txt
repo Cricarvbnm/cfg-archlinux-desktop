@@ -9,10 +9,10 @@ base-devel
 bat
 bees
 biber
+bitwarden
 bleachbit
 blueman
 btrfs-progs
-cava
 chezmoi
 cliphist
 compsize
@@ -25,6 +25,7 @@ dosfstools
 duf
 dust
 efibootmgr
+etckeeper
 evtest
 exfatprogs
 fastfetch
@@ -52,6 +53,7 @@ gamescope
 gdu
 gemini-cli
 gifski
+gimp
 gistow-git
 git
 git-delta
