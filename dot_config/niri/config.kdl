@@ -293,7 +293,7 @@ binds {
 
   Mod+F { maximize-column; }
   Mod+Shift+F { fullscreen-window; }
-  MouseBack { fullscreen-window; }
+  MouseBack { maximize-column; }
 
   // Finer width adjustments.
   // This command can also:
