@@ -6,5 +6,7 @@ status is-interactive; and begin
         for remote in $remotes
             git push $remote & git push $remote --tags &
         end
+	echo
+	echo Completed
     end
 end
