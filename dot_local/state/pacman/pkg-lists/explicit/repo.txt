@@ -3,6 +3,7 @@ archlinuxcn-keyring
 argbash
 aria2
 asusctl
+avahi
 baobab
 base
 base-devel
@@ -138,6 +139,7 @@ rssguard
 rsync
 samba
 save-music
+scx-tools
 sddm
 slurp
 snapper
@@ -176,6 +178,7 @@ virt-manager
 vulkan-intel
 wf-recorder
 wireless-regdb
+wireshark-qt
 wl-clipboard
 xdg-terminal-exec
 xorg-xeyes
