@@ -3,9 +3,14 @@ status is-interactive; and begin
 	set -l remotes (git remote)
 	echo Remotes: $remotes
 	echo
-        for remote in $remotes
-            git push $remote & git push $remote --tags &
-        end
+	set -l jobs_pushing
+	for remote in $remotes
+	    git push $remote &
+	    set -a jobs_pushing $last_pid
+	    git push $remote --tags &
+	    set -a jobs_pushing $last_pid
+	end
+	wait $jobs_pushing
 	echo
 	echo Completed
     end
