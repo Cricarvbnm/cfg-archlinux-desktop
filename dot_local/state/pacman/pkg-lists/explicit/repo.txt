@@ -66,7 +66,6 @@ htop
 hypridle
 iftop
 intel-ucode
-isd
 jdk-openjdk
 jq
 kcalc
@@ -166,7 +165,6 @@ thunderbird-i18n-zh-cn
 tieba-sign
 tldr
 translate-shell
-ttf-liberation
 ttf-nerd-fonts-symbols
 ttf-sarasa-gothic
 umu-launcher
