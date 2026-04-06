@@ -10,11 +10,11 @@
         "plasma-manager": "plasma-manager"
       },
       "locked": {
-        "lastModified": 1775217032,
-        "narHash": "sha256-aPQloVlIxD4vdkJCycCkKf26NhWZ8GhV6Lh07OArDsY=",
+        "lastModified": 1775382206,
+        "narHash": "sha256-6I1sKGOixVxXJvX8bZ0VuAHLZYrkG3vqKv0u5+4+Y+g=",
         "ref": "refs/heads/main",
-        "rev": "8b48a024bf3889bfff08090f6859e6a93edb3f86",
-        "revCount": 78,
+        "rev": "cf87614ea6ed0c2baa078862b161fb8bf6191c42",
+        "revCount": 80,
         "submodules": true,
         "type": "git",
         "url": "https://codeberg.org/Alechron/cfg-nixos.git"
@@ -129,11 +129,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1775143651,
-        "narHash": "sha256-S0RqAyDPMTcv9vASMaE8eY1QexFysAOdnxUxFHIPOyE=",
+        "lastModified": 1775360939,
+        "narHash": "sha256-XUBlSgUFdvTh6+K5LcI5mJu5F5L8scmJDMRiZM484TM=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "d166a078541982a76f14d3e06e9665fa5c9ed85e",
+        "rev": "2097a5c82bdc099c6135eae4b111b78124604554",
         "type": "github"
       },
       "original": {
