@@ -136,6 +136,7 @@ python
 python-pefile
 qemu-desktop
 qt6ct
+rar
 rog-control-center
 rssguard
 rsync
@@ -156,7 +157,9 @@ tesseract-data-jpn
 texlive-basic
 texlive-bibtexextra
 texlive-binextra
+texlive-fontsextra
 texlive-fontsrecommended
+texlive-langchinese
 texlive-langcjk
 texlive-latex
 texlive-latexextra
@@ -171,7 +174,6 @@ translate-shell
 ttf-nerd-fonts-symbols
 ttf-sarasa-gothic
 umu-launcher
-unrar
 unzip
 uv
 uwsm
@@ -186,6 +188,7 @@ xorg-xeyes
 xz
 yay
 zathura
+zathura-pdf-mupdf
 zbar
 zip
 zoxide
