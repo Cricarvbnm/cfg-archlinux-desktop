@@ -23,7 +23,7 @@ input {
     dwtp // Disable when trachpointing
     // drag false // Whether to eanble tap-and-drag
     drag-lock // Allow lifting the finger off for a short time while dragging
-    // natural-scroll // Move up to scroll down
+    natural-scroll // Move up to scroll down
     accel-speed 0.5 // Pointer acceleration speed. The default is 0.0
     // accel-profile "flat" // "adaptive" (default) or "flat" (disables pointer acceleration)
     // scroll-factor 1.0 // Scale the scrolling speed
