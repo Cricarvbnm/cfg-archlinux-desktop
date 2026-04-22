@@ -462,7 +462,7 @@ layout {
 
 spawn-at-startup "fcitx5" "--replace"
 
-prefer-no-csd // Ask the applications to omit their client-side decorations
+// prefer-no-csd // Ask the applications to omit their client-side decorations
 
 screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png" // null to disable saving
 
