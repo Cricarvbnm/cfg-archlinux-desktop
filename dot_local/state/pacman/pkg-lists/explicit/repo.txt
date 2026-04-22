@@ -10,6 +10,7 @@ base-devel
 bat
 bees
 biber
+bind
 bitwarden
 bleachbit
 blueman
@@ -79,8 +80,6 @@ lib32-mesa
 lib32-nvidia-utils
 lib32-vkd3d
 lib32-vulkan-intel
-libreoffice-still
-libreoffice-still-zh-cn
 libvirt
 linux-firmware
 linux-g14
