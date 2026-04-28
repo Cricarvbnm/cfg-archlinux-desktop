@@ -1,0 +1,80 @@
+(defcfg
+  input (device-file "/dev/input/by-path/pci-0000:00:14.0-usb-0:6:1.0-event-kbd")
+  output (uinput-sink "kmonad-alechron-at")
+)
+
+#| --------------------------------------------------------------------------
+
+Tags: Esc as Caps-Lock, Caps-Lock as Left Ctrl and Esc,
+      Left Ctrl as Layer Switch, Can Back to Original keyboard
+
+  -------------------------------------------------------------------------- |#
+
+#| --------------------------------------------------------------------------
+
+                     KMonad: US ansi ten-key-less template
+
+  This file contains the `defsrc` configuration for a standard US-ansi
+  ten-key-less keyboard. Modelled on a standard DAS-keyboard 100% with the
+  numpad removed. Copy out the 'defsrc' layer to start your own keyboard
+  configuration. Copy out the `deflayer` template to easily start a new layer
+  with matching `transparent` buttons.
+
+(deflayer name
+  caps _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _     _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _     _    _    _
+  @ctl _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _                    _
+  @lyr _    _              _              _    _    _    _               _    _    _
+)
+
+  -------------------------------------------------------------------------- |#
+
+(defsrc
+  esc  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12
+  grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc  ins  home pgup
+  tab  q    w    e    r    t    y    u    i    o    p    [    ]    \     del  end  pgdn
+  caps a    s    d    f    g    h    j    k    l    ;    '    ret
+  lsft z    x    c    v    b    n    m    ,    .    /    rsft                 up       
+  lctl lmet lalt           spc            ralt rmet cmp  rctl            left down rght
+)
+
+(defalias
+  ctl (tap-hold-next 200 esc lctl) ;; Super left ctrl. Left ctrl when held, escape when tapped
+
+  ;; Switch layers according to how many times the key is tapped.
+  ;; Tapped once and held for layer vim, tapped three times for layer base,
+  ;; tapped four times for layer normal
+  lyr (multi-tap 300 lctl 300 (layer-toggle vim) 300 (layer-switch base) (layer-switch normal))
+)
+
+;; Esc as caps-lock, caps-lock as super left ctrl
+(deflayer base
+  caps f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12
+  grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc  ins  home pgup
+  tab  q    w    e    r    t    y    u    i    o    p    [    ]    \     del  end  pgdn
+  @ctl a    s    d    f    g    h    j    k    l    ;    '    ret
+  lsft z    x    c    v    b    n    m    ,    .    /    rsft                 up       
+  @lyr lmet lalt           spc            ralt rmet cmp  rctl            left down rght
+)
+
+;; Original keyboard
+(deflayer normal
+  esc  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12
+  grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc  ins  home pgup
+  tab  q    w    e    r    t    y    u    i    o    p    [    ]    \     del  end  pgdn
+  caps a    s    d    f    g    h    j    k    l    ;    '    ret
+  lsft z    x    c    v    b    n    m    ,    .    /    rsft                 up       
+  @lyr lmet lalt           spc            ralt rmet cmp  rctl            left down rght
+)
+
+;; Navigation. u as page down, i as page up, h as left, j as down, k as up and l as right
+(deflayer vim
+  _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _     _    _    _
+  _    _    _    _    _    _    _    pgdn pgup _    _    _    _    _     _    _    _
+  _    _    _    _    _    _    left down up   rght _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _                    _
+  @lyr _    _              _              _    _    _    _               _    _    _
+)
