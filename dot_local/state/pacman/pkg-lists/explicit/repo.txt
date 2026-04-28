@@ -14,6 +14,7 @@ bind
 bitwarden
 bleachbit
 blueman
+btop
 btrfs-progs
 chezmoi
 cliphist
@@ -63,7 +64,6 @@ go
 grim
 grub
 heroic-games-launcher-bin
-htop
 hypridle
 iftop
 intel-ucode
